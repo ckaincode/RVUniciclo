@@ -5,7 +5,7 @@ use std.textio.all;
 
 entity ROM_RV is
 port(
-    address: in std_logic_vector(10 downto 0);
+    address: in std_logic_vector(11 downto 0);
     dataout: out std_logic_vector(31 downto 0)
     );
 end ROM_RV;
@@ -19,7 +19,7 @@ architecture tb_ROM of ROM_RV is
         variable text_line : line;
         variable ram_content : ram_type;
     begin
-        for i in 0 to 2047 loop
+        for i in 0 to 4095 loop
             if not endfile(text_file) then
                 readline(text_file, text_line);
                 hread(text_line, ram_content(i)); -- Read hex value into RAM

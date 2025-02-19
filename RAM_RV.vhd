@@ -10,7 +10,7 @@ entity RAM_RV is
         we        : in std_logic;               
         byte_en   : in std_logic;               
         sgn_en    : in std_logic;               
-        address   : in std_logic_vector(12 downto 0); 
+        address   : in std_logic_vector(13 downto 0); 
         datain    : in std_logic_vector(31 downto 0); 
         dataout   : out std_logic_vector(31 downto 0) 
     );
@@ -18,7 +18,7 @@ end RAM_RV;
 
 architecture rtl of ram_rv is
 
-    type mem_type is array (0 to 8195) of std_logic_vector(7 downto 0); 
+    type mem_type is array (0 to 16384) of std_logic_vector(7 downto 0); 
     signal mem : mem_type := (others => (others => '0')); 
 
     --Função auxiliar para acessar e processar a leitura de bytes com ou sem sinal
