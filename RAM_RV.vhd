@@ -56,16 +56,16 @@ begin
                     mem(to_integer(unsigned(address)) + 3) <= datain(31 downto 24);
                 end if;
             end if;
+        end if;
 
             -- Read
-            if byte_en = '1' then
+        if byte_en = '1' then
                 -- Lendo um byte da memória
-                dataout <= read_byte(to_integer(unsigned(address)));
-            else
+            dataout <= read_byte(to_integer(unsigned(address)));
+        else
                 -- Lendo uma palavra  da memória
-                dataout <= mem(to_integer(unsigned(address))) & mem(to_integer(unsigned(address)) + 1) &
-                           mem(to_integer(unsigned(address)) + 2) & mem(to_integer(unsigned(address)) + 3);
-            end if;
+            dataout <= mem(to_integer(unsigned(address))) & mem(to_integer(unsigned(address)) + 1) &
+                        mem(to_integer(unsigned(address)) + 2) & mem(to_integer(unsigned(address)) + 3);
         end if;
     end process;
 
