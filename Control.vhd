@@ -23,7 +23,7 @@ architecture rtl of control is
     constant LOAD : std_logic_vector (6 downto 0) := "0000011"; --LW,LB,LBU
     constant STORE : std_logic_vector (6 downto 0) := "0100011"; --SW,SB
     constant REGISTER_LASC: std_logic_vector (6 downto 0) := "0110011"; --AND,SLT,OR,XOR,ADD,SUB,SLL,SRL,SRA
-    constant IMMEDIATE : std_logic_vector (6 downto 0) := "0010011" --ADDI,ANDI,ORI,XORI
+    constant IMMEDIATE : std_logic_vector (6 downto 0) := "0010011"; --ADDI,ANDI,ORI,XORI
 
 begin
 
@@ -53,14 +53,13 @@ comb_proc: process(op)
         RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "10" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <="00" ; RegSrc <= "00";
 
             when REGISTER_LASC => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "10" ; RegSrc <="00" ;
+        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "10" ; RegSrc <="00";
 
-            when IMMEDIATE => Branch <= '0'; MemtoReg <= '0'; MEMWR <= '0'; 
-        RegWR <= '1'; ALUSrc1 <= '0''; ALUSrc2 <= "01"; JAL <= '0'; JALRs <= '0'; ALUOp <= "11"; RegSrc <= "00";
+            when IMMEDIATE => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0'; 
+        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "01" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "11" ; RegSrc <= "00";
 
             when others => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <="00" ;
-
+        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <="00";
 
         end case;    
     end process comb_proc;
