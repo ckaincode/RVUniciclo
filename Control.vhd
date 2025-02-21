@@ -35,13 +35,13 @@ comb_proc: process(op)
         RegWR <= '1'; JALs <= '0' ; JALRs <= '0'; RegSrc <= "01" ;
 
             when AUIPC => Branch <= '0'; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '1' ; ALUSrc1 <= '1' ; ALUSrc2 <= "01" ; JALs <= '0' ; JALRs <= '0'; ALUOp <= "10" ; RegSrc <= "00" ;
+        RegWR <= '1' ; ALUSrc1 <= '1' ; ALUSrc2 <= "01" ; JALs <= '0' ; JALRs <= '0'; ALUOp <= "00" ; RegSrc <= "00" ;
 
             when JAL => Branch <= '0'; MEMWR <= '0' ;
         RegWR <= '1'; JALs <= '1' ; JALRs <= '0'; RegSrc <="10" ;
 
             when JALR => Branch <= '0'; MemtoReg <= '0' ; MEMWR <='0' ;
-        RegWR <= '1' ; ALUSrc1 <='0' ; ALUSrc2 <="10" ; JALs <= '0' ; JALRs <= '1' ; ALUOp <= "10" ; RegSrc <= "10";
+        RegWR <= '1' ; ALUSrc1 <='0' ; ALUSrc2 <="10" ; JALs <= '0' ; JALRs <= '1' ; ALUOp <= "00" ; RegSrc <= "10";
 
             when C_JUMP => Branch <= '1' ; MemtoReg <= '0' ; MEMWR <= '0' ;
         RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "01" ;
@@ -56,7 +56,7 @@ comb_proc: process(op)
         RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "10" ; RegSrc <="00" ;
 
             when IMMEDIATE => Branch <= '0'; MemtoReg <= '0'; MEMWR <= '0'; 
-        RegWR <= '1'; ALUSrc1 <= '0''; ALUSrc2 <= "01"; JAL <= '0'; JALRs <= '0'; ALUOp <= "10"; RegSrc <= "00";
+        RegWR <= '1'; ALUSrc1 <= '0''; ALUSrc2 <= "01"; JAL <= '0'; JALRs <= '0'; ALUOp <= "11"; RegSrc <= "00";
 
             when others => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0';
         RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <="00" ;
