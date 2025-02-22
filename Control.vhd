@@ -6,7 +6,7 @@ entity control is
         op: in std_logic_vector(6 downto 0);
         Branch,MemtoReg,MemWR,RegWR: out std_logic;
         ALUSrc1: out std_logic; --XREGS1 ou PC/ XREGS2 ou Imm
-        ALUSrc2 : out std_logic_vector(1 downto 0); -- XREGS2 ou Imm ou Imm << 1
+        ALUSrc2 : out std_logic; -- XREGS2 ou Imm 
         JALs,JALRs : out std_logic;
         ALUOp: out std_logic_vector(1 downto 0);
         RegSrc: out std_logic_vector (1 downto 0) -- WB ou Imm ou PC+4
@@ -35,31 +35,31 @@ comb_proc: process(op)
         RegWR <= '1'; JALs <= '0' ; JALRs <= '0'; RegSrc <= "01" ;
 
             when AUIPC => Branch <= '0'; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '1' ; ALUSrc1 <= '1' ; ALUSrc2 <= "01" ; JALs <= '0' ; JALRs <= '0'; ALUOp <= "00" ; RegSrc <= "00" ;
+        RegWR <= '1' ; ALUSrc1 <= '1' ; ALUSrc2 <= '1' ; JALs <= '0' ; JALRs <= '0'; ALUOp <= "00" ; RegSrc <= "00" ;
 
             when JAL => Branch <= '0'; MEMWR <= '0' ;
         RegWR <= '1'; JALs <= '1' ; JALRs <= '0'; RegSrc <="10" ;
 
             when JALR => Branch <= '0'; MemtoReg <= '0' ; MEMWR <='0' ;
-        RegWR <= '1' ; ALUSrc1 <='0' ; ALUSrc2 <="10" ; JALs <= '0' ; JALRs <= '1' ; ALUOp <= "00" ; RegSrc <= "10";
+        RegWR <= '1' ; ALUSrc1 <='0' ; ALUSrc2 <='1' ; JALs <= '0' ; JALRs <= '1' ; ALUOp <= "00" ; RegSrc <= "10";
 
             when C_JUMP => Branch <= '1' ; MemtoReg <= '0' ; MEMWR <= '0' ;
-        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "01" ;
+        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= '0' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "01" ;
 
             when LOAD => Branch <= '0' ; MemtoReg <= '1' ; MEMWR <= '0';
-        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "10" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <= "00" ;
+        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= '1' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <= "00" ;
 
             when STORE => Branch <= '0'; MemtoReg <= '0' ; MEMWR <= '1' ;
-        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "10" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <="00" ; RegSrc <= "00";
+        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= '1' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <="00" ; RegSrc <= "00";
 
             when REGISTER_LASC => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "10" ; RegSrc <="00";
+        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= '0' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "10" ; RegSrc <="00";
 
             when IMMEDIATE => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0'; 
-        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= "01" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "11" ; RegSrc <= "00";
+        RegWR <= '1' ; ALUSrc1 <= '0' ; ALUSrc2 <= '1' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "11" ; RegSrc <= "00";
 
             when others => Branch <= '0' ; MemtoReg <= '0' ; MEMWR <= '0';
-        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= "00" ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <="00";
+        RegWR <= '0' ; ALUSrc1 <= '0' ; ALUSrc2 <= '0' ; JALs <= '0' ; JALRs <= '0' ; ALUOp <= "00" ; RegSrc <="00";
 
         end case;    
     end process comb_proc;

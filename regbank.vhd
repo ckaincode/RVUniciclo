@@ -14,7 +14,11 @@ end XREGS;
 
 architecture Behavioral of XREGS is
   type regbank is array (0 to 31) of std_logic_vector(WSIZE-1 downto 0);
-  signal registers : regbank := (others => (others => '0'));
+  signal registers : regbank := (
+    2 => x"00003FFC",  -- SP
+    3 => x"00001800",  -- GP
+    others => (others => '0')
+);
 begin
 
   process(clk)

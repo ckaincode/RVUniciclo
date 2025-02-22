@@ -34,61 +34,84 @@ architecture behavioural of ulaRV is
 	
 begin
 	Z <= a32;
-	proc_ula: process(A,B,opcode,a32)
-	begin
-		case opcode is
-			when ADD_OP => a32 <= std_logic_vector(signed(A) + signed(B));
-			when SUB_OP => a32 <= std_logic_vector(signed(A) - signed(B));
-			when AND_OP => a32 <= A and B;
-			when OR_OP => a32 <= A or B;
-			when XOR_OP =>
-				a32 <= A xor B;
-            when SLL_OP =>
+    proc_ula: process(A, B, opcode)
+    begin
+        case opcode is
+            when ADD_OP  => 
+                a32 <= std_logic_vector(signed(A) + signed(B));
+                cond <= '0';
+            when SUB_OP  => 
+                a32 <= std_logic_vector(signed(A) - signed(B));
+                cond <= '0';
+            when AND_OP  => 
+                a32 <= A and B;
+                cond <= '0';
+            when OR_OP   => 
+                a32 <= A or B;
+                cond <= '0';
+            when XOR_OP  => 
+                a32 <= A xor B;
+                cond <= '0';
+            when SLL_OP  => 
                 a32 <= std_logic_vector(shift_left(unsigned(A), to_integer(unsigned(B(4 downto 0)))));
-            when SRL_OP =>
+                cond <= '0';
+            when SRL_OP  => 
                 a32 <= std_logic_vector(shift_right(unsigned(A), to_integer(unsigned(B(4 downto 0)))));
-            when SRA_OP =>
+                cond <= '0';
+            when SRA_OP  => 
                 a32 <= std_logic_vector(shift_right(signed(A), to_integer(unsigned(B(4 downto 0)))));
-            when SLT_OP =>
+                cond <= '0';
+            when SLT_OP  =>
                 if signed(A) < signed(B) then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
             when SLTU_OP =>
                 if unsigned(A) < unsigned(B) then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
-            when SGE_OP =>
+            when SGE_OP  =>
                 if signed(A) >= signed(B) then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
             when SGEU_OP =>
                 if unsigned(A) >= unsigned(B) then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
-            when SEQ_OP =>
+            when SEQ_OP  =>
                 if A = B then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
-            when SNE_OP =>
+            when SNE_OP  =>
                 if A /= B then
                     a32 <= UM;
+                    cond <= '1';
                 else
                     a32 <= ZERO;
+                    cond <= '0';
                 end if;
-
-            when others =>
+            when others  =>
                 a32 <= ZERO;
+                cond <= '0';
         end case;
-		if((a32=UM) and (opcode(3)='1')) then cond <= '1'; else cond <= '0'; end if;
-    end process;
+    end process proc_ula;
 end behavioural;

@@ -27,7 +27,7 @@ architecture Uniciclo of main is
             op: in std_logic_vector(6 downto 0);
             Branch,MemtoReg,MemWR,RegWR: out std_logic;
             ALUSrc1: out std_logic; --XREGS1 ou PC/ XREGS2 ou Imm
-            ALUSrc2 : out std_logic_vector(1 downto 0); -- XREGS2 ou Imm ou Imm << 1
+            ALUSrc2 : out std_logic; -- XREGS2 ou Imm ou Imm << 1
             JALs,JALRs : out std_logic;
             ALUOp: out std_logic_vector(1 downto 0);
             RegSrc: out std_logic_vector (1 downto 0) -- WB ou Imm ou PC+4
@@ -133,7 +133,7 @@ architecture Uniciclo of main is
     signal s_ALUOp: std_logic_vector (1 downto 0);
     signal s_ALUOpCode: std_logic_vector(3 downto 0);
     signal s_func3: std_logic_vector (2 downto 0);
-    signal s_AluSrc2: std_logic_vector(1 downto 0);
+    signal s_AluSrc2: std_logic;
     signal s_RegSrc: std_logic_vector(1 downto 0);
 
     signal s_AluSrc1: std_logic;
@@ -153,14 +153,14 @@ begin
     muxpc : mux2x1 port map(s_PC4orBranch,s_JALR_PC,s_jalr,s_NextPC);
     pcinst: PC port map(rsti,clk,s_NextPC,s_PC);
     pc4adder: adder port map(s_PC,x"00000004",s_PC4_ALU);
-    pcbranchadder: adder port map(s_PC,s_ImmShifted,s_PCBranch_ALU);
+    pcbranchadder: adder port map(s_PC,s_Immv,s_PCBranch_ALU);
     muxbranch: mux2x1 port map(s_PC4_ALU,s_PCBranch_ALU,s_condbranch,s_PC4orBranch);
     registers: XREGS port map(clk,s_regwr,s_rs1,s_rs2,s_rd,s_WrData,s_rd1,s_rd2);
     muxregsrc: mux4x1 port map(s_WrBack,s_Immv,s_PC4_ALU,x"00000000",s_RegSrc,s_WrData);
     immg: genImm32 port map(s_instruction,s_Imm);
     muxmemout: mux2x1 port map(s_ALU,s_Mem,s_mem2reg,s_WrBack);
     muxula1: mux2x1 port map(s_rd1,s_PC,s_ALUSrc1,s_ALUArg1);
-    muxula2: mux4x1 port map(s_rd2,s_Immv,s_ImmShifted,x"00000000",s_ALUSrc2,s_ALUArg2);
+    muxula2: mux2x1 port map(s_rd2,s_Immv,s_ALUSrc2,s_ALUArg2);
     aluctr: AluCtrl port map(s_ALUOp,s_func3,s_bit30,s_ALUOpCode);
     mainALU: ulaRV port map(s_ALUOpCode,s_ALUArg1,s_ALUArg2,s_ALU,s_ALUZero);
     mainCtrl: control port map(s_Opcode,s_branch,s_mem2reg,memwren_rst,regwren_rst,s_ALUSrc1,s_ALUSrc2,s_jal,
