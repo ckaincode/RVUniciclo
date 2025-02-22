@@ -6,6 +6,7 @@ use std.textio.all;
 
 entity main is
     port(
+        rst: in std_logic;
         clock: in std_logic
     );
 end main;
@@ -58,6 +59,7 @@ architecture Uniciclo of main is
 
     component PC is
         port(
+            rst : in std_logic;
             clk : in std_logic;
             next_pc : in std_logic_vector (31 downto 0);
             current : out std_logic_vector (31 downto 0)
@@ -142,12 +144,14 @@ architecture Uniciclo of main is
     signal s_condbranch: std_logic;
     signal s_memwr,s_regwr : std_logic;
     signal s_mem2reg: std_logic;
-    signal clk: std_logic;   
+    signal clk: std_logic;
+    signal rsti: std_logic;
+    signal memwren_rst,regwren_rst : std_logic;
 
 begin
 
     muxpc : mux2x1 port map(s_PC4orBranch,s_JALR_PC,s_jalr,s_NextPC);
-    pcinst: PC port map(clk,s_NextPC,s_PC);
+    pcinst: PC port map(rsti,clk,s_NextPC,s_PC);
     pc4adder: adder port map(s_PC,x"00000004",s_PC4_ALU);
     pcbranchadder: adder port map(s_PC,s_ImmShifted,s_PCBranch_ALU);
     muxbranch: mux2x1 port map(s_PC4_ALU,s_PCBranch_ALU,s_condbranch,s_PC4orBranch);
@@ -159,12 +163,16 @@ begin
     muxula2: mux4x1 port map(s_rd2,s_Immv,s_ImmShifted,x"00000000",s_ALUSrc2,s_ALUArg2);
     aluctr: AluCtrl port map(s_ALUOp,s_func3,s_bit30,s_ALUOpCode);
     mainALU: ulaRV port map(s_ALUOpCode,s_ALUArg1,s_ALUArg2,s_ALU,s_ALUZero);
-    mainCtrl: control port map(s_Opcode,s_branch,s_mem2reg,s_memwr,s_regwr,s_ALUSrc1,s_ALUSrc2,s_jal,
+    mainCtrl: control port map(s_Opcode,s_branch,s_mem2reg,memwren_rst,regwren_rst,s_ALUSrc1,s_ALUSrc2,s_jal,
     s_jalr,s_ALUOp,s_RegSrc);
     ROM: ROM_RV port map(s_romaddr,s_instruction);
     RAM: RAM_RV port map(clk,s_memwr,s_byteen,s_sgnen,s_ramaddr,s_rd2,s_Mem);
 
+    rsti <= rst;
     clk <= clock;
+    --Impedir mudança de estado antes da inicialização
+    s_memwr <= (memwren_rst and (not rsti));
+    s_regwr <= (regwren_rst and (not rsti));
     s_Immv <= std_logic_vector(s_Imm);
     s_ImmShifted <= std_logic_vector(shift_left(s_Imm,1));
     s_JALR_PC <= s_ALU(31 downto 1)&'0';
