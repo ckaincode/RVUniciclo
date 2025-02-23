@@ -13,7 +13,7 @@ architecture behavior of genImm32 is
  
     type FORMAT_RV is (R_type, I_type, S_type, SB_type, UJ_type, U_type);
 
- 
+    constant OPCODE_AUIPC_TYPE : std_logic_vector (6 downto 0) := "0010111";
     constant OPCODE_R_TYPE : std_logic_vector(6 downto 0) := "0110011";
     constant OPCODE_I_TYPE : std_logic_vector(6 downto 0) := "0010011";
 	constant OPCODE_I2_TYPE : std_logic_vector(6 downto 0) := "0000011";
@@ -52,6 +52,9 @@ begin
                 format <= SB_type;
 
             when OPCODE_U_TYPE =>
+                format <= U_type;
+
+            when OPCODE_AUIPC_TYPE =>
                 format <= U_type;
 
             when OPCODE_UJ_TYPE =>
