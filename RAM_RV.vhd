@@ -64,8 +64,8 @@ begin
             dataout <= read_byte(to_integer(unsigned(address)));
         else
                 -- Lendo uma palavra  da memória
-            dataout <= mem(to_integer(unsigned(address))) & mem(to_integer(unsigned(address)) + 1) &
-                        mem(to_integer(unsigned(address)) + 2) & mem(to_integer(unsigned(address)) + 3);
+            dataout <= mem(to_integer(unsigned(address))+3) & mem(to_integer(unsigned(address)) + 2) &
+                        mem(to_integer(unsigned(address)) + 1) & mem(to_integer(unsigned(address)));
         end if;
     end process;
 
