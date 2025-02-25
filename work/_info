@@ -1,0 +1,574 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Caio/Documents
+Eadder
+Z0 w1740216820
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 456
+Z4 dC:/Users/Caio/RVUniciclo
+Z5 8C:/Users/Caio/RVUniciclo/half_adder_32b.vhd
+Z6 FC:/Users/Caio/RVUniciclo/half_adder_32b.vhd
+l0
+L5 1
+V:VFjkbiFWk^`K8FL>@50G3
+!s100 SOibR`^94DmzYD]h>EVWR3
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1740494461
+!i10b 1
+Z9 !s108 1740494460.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/half_adder_32b.vhd|
+Z11 !s107 C:/Users/Caio/RVUniciclo/half_adder_32b.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+DEx4 work 5 adder 0 22 :VFjkbiFWk^`K8FL>@50G3
+!i122 456
+l13
+L12 4
+VnECM3[4GHl^<eKkoi4RaO2
+!s100 zFgCYd4UZ<HlFAP[Z8hW]1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ealuctrl
+Z14 w1740180848
+R1
+R2
+R3
+!i122 454
+R4
+Z15 8C:/Users/Caio/RVUniciclo/ALUControl.vhd
+Z16 FC:/Users/Caio/RVUniciclo/ALUControl.vhd
+l0
+L5 1
+VaGRm<>A;VKM[G>bG^n[D21
+!s100 TZ7lK2N:c97zc6Yg>TXUR3
+R7
+32
+Z17 !s110 1740494460
+!i10b 1
+R9
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/ALUControl.vhd|
+Z19 !s107 C:/Users/Caio/RVUniciclo/ALUControl.vhd|
+!i113 1
+R12
+R13
+Abehavioural
+R1
+R2
+R3
+DEx4 work 7 aluctrl 0 22 aGRm<>A;VKM[G>bG^n[D21
+!i122 454
+l16
+L14 51
+V[aa4GBPNUTkZ2zGdGe`@F0
+!s100 T6Z=cEiML?zzZMf=h6nF52
+R7
+32
+R17
+!i10b 1
+R9
+R18
+R19
+!i113 1
+R12
+R13
+Econtrol
+Z20 w1740264520
+R2
+R3
+!i122 455
+R4
+Z21 8C:/Users/Caio/RVUniciclo/Control.vhd
+Z22 FC:/Users/Caio/RVUniciclo/Control.vhd
+l0
+L4 1
+V5U_i`4Ba:ENcDmT`><;z[3
+!s100 `Z:O;f:6NT@Ad`f]oFPJ12
+R7
+32
+R17
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/Control.vhd|
+Z24 !s107 C:/Users/Caio/RVUniciclo/Control.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+DEx4 work 7 control 0 22 5U_i`4Ba:ENcDmT`><;z[3
+!i122 455
+l28
+L16 51
+VFUR[M^P^n^JEiKibdS9=H3
+!s100 ]NJEUjP=o1f?W=Df9U2ne2
+R7
+32
+R17
+!i10b 1
+R9
+R23
+R24
+!i113 1
+R12
+R13
+Egenimm32
+Z25 w1740321754
+R1
+R2
+R3
+!i122 457
+R4
+Z26 8C:/Users/Caio/RVUniciclo/ImmGen.vhd
+Z27 FC:/Users/Caio/RVUniciclo/ImmGen.vhd
+l0
+L5 1
+VY8>lS5S;Cl8KK1Y?N1eBV2
+!s100 akIa6Ga:TfCFH`S3[`zUC2
+R7
+32
+R8
+!i10b 1
+Z28 !s108 1740494461.000000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/ImmGen.vhd|
+Z30 !s107 C:/Users/Caio/RVUniciclo/ImmGen.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R1
+R2
+R3
+DEx4 work 8 genimm32 0 22 Y8>lS5S;Cl8KK1Y?N1eBV2
+!i122 457
+l29
+L12 100
+VmojNGHlV5213]m9j1U?Vm1
+!s100 ?BIF0chJHD^aKUzdfgQ7=0
+R7
+32
+R8
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R12
+R13
+Emain
+Z31 w1740264419
+Z32 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z33 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R1
+R2
+R3
+!i122 458
+R4
+Z34 8C:/Users/Caio/RVUniciclo/main.vhd
+Z35 FC:/Users/Caio/RVUniciclo/main.vhd
+l0
+L7 1
+Vglc1E2HkmaYfGJg5`_K`Z3
+!s100 ;1kHKlgznc[kl;dcCcP^_3
+R7
+32
+R8
+!i10b 1
+R28
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/main.vhd|
+Z37 !s107 C:/Users/Caio/RVUniciclo/main.vhd|
+!i113 1
+R12
+R13
+Auniciclo
+R32
+R33
+R1
+R2
+R3
+DEx4 work 4 main 0 22 glc1E2HkmaYfGJg5`_K`Z3
+!i122 458
+l151
+L14 178
+VO>ljaXn5n4Z@aJF_>3zR>2
+!s100 M2W=5@5zB4`gPK9Xiijel1
+R7
+32
+R8
+!i10b 1
+R28
+R36
+R37
+!i113 1
+R12
+R13
+Emux2x1
+Z38 w1740188344
+R2
+R3
+!i122 459
+R4
+Z39 8C:/Users/Caio/RVUniciclo/Mux2x1_32b.vhd
+Z40 FC:/Users/Caio/RVUniciclo/Mux2x1_32b.vhd
+l0
+L4 1
+V81B;a8fR>DAl`?lB`oM>F0
+!s100 Y@eYdTFg:QH]mLGKaJF5l3
+R7
+32
+R8
+!i10b 1
+R28
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/Mux2x1_32b.vhd|
+Z42 !s107 C:/Users/Caio/RVUniciclo/Mux2x1_32b.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+DEx4 work 6 mux2x1 0 22 81B;a8fR>DAl`?lB`oM>F0
+!i122 459
+l14
+L12 7
+V@oQCUCOJCS7hj?lY`DhCR0
+!s100 l`nDajL>fcBjBA9nAnJe>1
+R7
+32
+R8
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Emux4x1
+Z43 w1740189163
+R2
+R3
+!i122 460
+R4
+Z44 8C:/Users/Caio/RVUniciclo/Mux4x1_32b.vhd
+Z45 FC:/Users/Caio/RVUniciclo/Mux4x1_32b.vhd
+l0
+L4 1
+Vmk?0QYQAISGHG4d=K9>Q@1
+!s100 0n4fP?2Ph:HH?DZfJ>15H1
+R7
+32
+R8
+!i10b 1
+R28
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/Mux4x1_32b.vhd|
+Z47 !s107 C:/Users/Caio/RVUniciclo/Mux4x1_32b.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+DEx4 work 6 mux4x1 0 22 mk?0QYQAISGHG4d=K9>Q@1
+!i122 460
+l14
+L12 10
+V0[jAf@KAkg^[j_b]Qn05=1
+!s100 68Z>YAW9H46?CK2PEm8VY3
+R7
+32
+R8
+!i10b 1
+R28
+R46
+R47
+!i113 1
+R12
+R13
+Epc
+Z48 w1740236095
+R2
+R3
+!i122 461
+R4
+Z49 8C:/Users/Caio/RVUniciclo/PC.vhd
+Z50 FC:/Users/Caio/RVUniciclo/PC.vhd
+l0
+L4 1
+V8JFiRZ`JmZYhZ_?X=IP3c0
+!s100 1E>G>>Q=PFaDzYh;BRZT82
+R7
+32
+Z51 !s110 1740494462
+!i10b 1
+Z52 !s108 1740494462.000000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/PC.vhd|
+Z54 !s107 C:/Users/Caio/RVUniciclo/PC.vhd|
+!i113 1
+R12
+R13
+Artl
+R2
+R3
+DEx4 work 2 pc 0 22 8JFiRZ`JmZYhZ_?X=IP3c0
+!i122 461
+l15
+L13 19
+VW]2;cVO24CAHIMI<e7mQ<2
+!s100 Y`R:Um1aG_Qk=fjfVSz^A2
+R7
+32
+R51
+!i10b 1
+R52
+R53
+R54
+!i113 1
+R12
+R13
+Eram_rv
+Z55 w1740491881
+R32
+R33
+R1
+R2
+R3
+!i122 462
+R4
+Z56 8C:/Users/Caio/RVUniciclo/RAM_RV.vhd
+Z57 FC:/Users/Caio/RVUniciclo/RAM_RV.vhd
+l0
+L7 1
+V>@_^[dAZ5l_I=Ub?]6<]=1
+!s100 7Kd6]MIR3ljKELoB9KdAn3
+R7
+33
+R51
+!i10b 1
+R52
+Z58 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/RAM_RV.vhd|
+Z59 !s107 C:/Users/Caio/RVUniciclo/RAM_RV.vhd|
+!i113 1
+Z60 o-work work -2008 -explicit
+R13
+Artl
+R32
+R33
+R1
+R2
+R3
+DEx4 work 6 ram_rv 0 22 >@_^[dAZ5l_I=Ub?]6<]=1
+!i122 462
+l41
+L19 54
+VgDKgKhf<lW63kVhHRWBiY1
+!s100 MiHKhFA;dT78aZjfC]FK;1
+R7
+33
+R51
+!i10b 1
+R52
+R58
+R59
+!i113 1
+R60
+R13
+Erom_rv
+Z61 w1740494453
+R1
+R2
+R3
+!i122 464
+R4
+Z62 8C:/Users/Caio/RVUniciclo/ROM_RV.vhd
+Z63 FC:/Users/Caio/RVUniciclo/ROM_RV.vhd
+l0
+L6 1
+V_fO190ZaN@zdej=>TNa`S2
+!s100 foP3VeIQd`g38Im05Jl@a2
+R7
+33
+R51
+!i10b 1
+R52
+Z64 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/ROM_RV.vhd|
+Z65 !s107 C:/Users/Caio/RVUniciclo/ROM_RV.vhd|
+!i113 1
+R60
+R13
+Atb_rom
+R1
+R2
+R3
+DEx4 work 6 rom_rv 0 22 _fO190ZaN@zdej=>TNa`S2
+!i122 464
+l35
+L13 26
+V@7jNJ>Z:`?V>HDk;V1jYI1
+!s100 19KoD:O31PjdWSnd707bJ0
+R7
+33
+R51
+!i10b 1
+R52
+R64
+R65
+!i113 1
+R60
+R13
+Etb_main
+Z66 w1740235549
+R32
+R33
+R1
+R2
+R3
+!i122 465
+R4
+Z67 8C:/Users/Caio/RVUniciclo/tb_main.vhd
+Z68 FC:/Users/Caio/RVUniciclo/tb_main.vhd
+l0
+L7 1
+V76J4nGYa]IklAoXgfn8HE1
+!s100 ;?NOeNY=2S^=XIGS;7i3D1
+R7
+32
+Z69 !s110 1740494463
+!i10b 1
+Z70 !s108 1740494463.000000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/tb_main.vhd|
+Z72 !s107 C:/Users/Caio/RVUniciclo/tb_main.vhd|
+!i113 1
+R12
+R13
+Atbmain
+R32
+R33
+R1
+R2
+R3
+DEx4 work 7 tb_main 0 22 76J4nGYa]IklAoXgfn8HE1
+!i122 465
+l21
+L9 23
+V_7RcAfao@72Sl<6Zk_?h^3
+!s100 fS;:mbDGfUN]>oeXMLo<C1
+R7
+32
+R69
+!i10b 1
+R70
+R71
+R72
+!i113 1
+R12
+R13
+Eularv
+Z73 w1740257841
+R1
+R2
+R3
+!i122 466
+R4
+Z74 8C:/Users/Caio/RVUniciclo/ULARV.vhd
+Z75 FC:/Users/Caio/RVUniciclo/ULARV.vhd
+l0
+L5 1
+V?7ihZLZhE]NZciY>kN^d_2
+!s100 C9[nGV``nQ3RaYlHFgJ150
+R7
+32
+R69
+!i10b 1
+R70
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/ULARV.vhd|
+Z77 !s107 C:/Users/Caio/RVUniciclo/ULARV.vhd|
+!i113 1
+R12
+R13
+Abehavioural
+R1
+R2
+R3
+Z78 DEx4 work 5 ularv 0 22 ?7ihZLZhE]NZciY>kN^d_2
+!i122 466
+l35
+Z79 L14 104
+Z80 V4We3?;?ImR7R;QcB8ICNL1
+Z81 !s100 klRWJL>f6`gRH28mRB`Z>0
+R7
+32
+R69
+!i10b 1
+R70
+R76
+R77
+!i113 1
+R12
+R13
+Exregs
+Z82 w1740263376
+R1
+R2
+R3
+!i122 463
+R4
+Z83 8C:/Users/Caio/RVUniciclo/regbank.vhd
+Z84 FC:/Users/Caio/RVUniciclo/regbank.vhd
+l0
+L5 1
+VXbVT1<b_;81TLJYVCJGcO0
+!s100 eNVIJPXjTEQGK0?LJ4V6D3
+R7
+32
+R51
+!i10b 1
+R52
+Z85 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Caio/RVUniciclo/regbank.vhd|
+Z86 !s107 C:/Users/Caio/RVUniciclo/regbank.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 5 xregs 0 22 XbVT1<b_;81TLJYVCJGcO0
+!i122 463
+l22
+L15 22
+V7S3GELb[KG<5;2]DeV:YU3
+!s100 iT^RR@4:^d<e3<2acEYOG3
+R7
+32
+R51
+!i10b 1
+R52
+R85
+R86
+!i113 1
+R12
+R13

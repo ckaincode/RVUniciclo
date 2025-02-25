@@ -6,6 +6,7 @@
 	li a1,0
 	li a2,1
 	li a3,0x2000
+	li a4, 0xFFFFFFFE
 	jal jaj
 	
 jaj:
@@ -16,3 +17,7 @@ jaj:
 	
 end:
 	sw a1,0(a3)
+	sb a4,1(a3)
+	lb s0,0(a3)
+	lbu s1,1(a3)
+	lw s2,0(a3)
